@@ -12,7 +12,7 @@ class GitHubAPI:
         """Fetch the latest release information for a given repository in [username]/[repository] format."""
         url = f"{self.base_url}/repos/{repo_name}/releases/latest"
         headers = {
-            "Authorization": f"token {self.token}",
+            "Authorization": f"token {self.github_api_token}",
             "Accept": "application/vnd.github.v3+json"
         }
         response = requests.get(url, headers=headers)
