@@ -23,9 +23,10 @@ def call_openai_api():
         print(response.choices[0].message)
     except Exception as e:
         print(f"An error occurred: {e}")
+        raise e
         time.sleep(10)  # 等待一段时间后重试
 
 
 # for _ in range(1):
 call_openai_api()
-    # time.sleep(1)  # 每次调用后等待一秒，避免过快频繁调用
+# time.sleep(1)  # 每次调用后等待一秒，避免过快频繁调用
