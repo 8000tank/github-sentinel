@@ -4,6 +4,20 @@ class Reporter:
     def __init__(self, llm_client):
         self.llm_client = llm_client
 
+    def generate_report(self, release_info):
+        if release_info:
+            report = (
+                f"Latest Release for {release_info['name']}:\n"
+                f"Tag: {release_info['tag_name']}\n"
+                f"Published at: {release_info['published_at']}\n"
+                f"Author: {release_info['author']['login']}\n"
+                f"URL: {release_info['html_url']}\n"
+                f"Body: {release_info['body']}\n"
+            )
+        else:
+            report = "No release information found."
+        return report
+
     def generate_summary_report(self, markdown_file):
         with open(markdown_file, 'r') as file:
             content = file.read()
